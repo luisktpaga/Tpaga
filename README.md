@@ -14,11 +14,9 @@ Un ejemplo del codigo para consumir un servicio seria el siguiente metodo GET pa
 			String name =  App.PRIVATE_KEY;
       String password = "";
       String authString = name + ":" + password;
-			System.out.println("auth string: " + authString);
 			byte[] authEncBytes = Base64.encodeBase64(authString.getBytes());
 			String authStringEnc = new String(authEncBytes);
-			System.out.println("Base64 encoded auth string: " + authStringEnc);
-
+			
 			URL url = new URL(webPage);
 			URLConnection urlConnection = url.openConnection();
 			urlConnection.setRequestProperty("Authorization", "Basic " + authStringEnc);
